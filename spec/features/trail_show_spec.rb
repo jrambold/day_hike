@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'when I visit the trail show' do
-  scenario 'I click a link to a trip show' do
+  scenario 'I see the total number of trips this hike has been included in' do
 
   end
 end
