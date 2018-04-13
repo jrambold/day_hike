@@ -36,14 +36,27 @@ describe 'when I visit the trips show' do
   end
   scenario 'I see the average hiking distance' do
     trip = Trip.create!(name: 'hanging lake', start_date: "2018/03/30", end_date: "2018/03/30")
-    trail = Trail.create!(length: 45, name: 'lower', address: "mountains")
+    trail = Trail.create!(length: 40, name: 'lower', address: "mountains")
     trail2 = Trail.create!(length: 120, name: 'upper', address: "peak")
     trip.trip_trails.create!(trail_id: trail.id)
     trip.trip_trails.create!(trail_id: trail2.id)
 
     visit trip_path(trip)
 
-    expect(page).to have_content('Total Distance: 165')
+    expect(page).to have_content('Average Distance: 80')
+
+  end
+  scenario 'I see the longest and shortest trail' do
+    trip = Trip.create!(name: 'hanging lake', start_date: "2018/03/30", end_date: "2018/03/30")
+    trail = Trail.create!(length: 40, name: 'lower', address: "mountains")
+    trail2 = Trail.create!(length: 120, name: 'upper', address: "peak")
+    trip.trip_trails.create!(trail_id: trail.id)
+    trip.trip_trails.create!(trail_id: trail2.id)
+
+    visit trip_path(trip)
+
+    expect(page).to have_content('Longest Trail: 120')
+    expect(page).to have_content('Shortest Trail: 40')
 
   end
 end

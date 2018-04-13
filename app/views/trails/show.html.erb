@@ -1,0 +1,21 @@
+
+
+
+<ul>
+  <li>Length: <%= @trail.length %></li>
+  <li>Name: <%= @trail.name %></li>
+  <li>Address: <%= @trail.address %></li>
+</ul>
+
+<br>
+<p>Total Trips: <%= @trail.trips.count %></p>
+<br>
+
+<% @trail.trips.each do |trip| %>
+<h3>Trail used for<h3>
+<ul>
+  <li>Length: <%= trip.total_distance %></li>
+  <li>Name: <%= trip.name %></li>
+  <li>Address: <%= @trail.address %></li>
+</ul>
+<% end %>
