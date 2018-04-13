@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start</th>
+    <th>End</th>
+  </tr>
+  <% @trips.each do |trip| %>
+    <tr>
+      <td><a href="<%= trip_path(trip) %>"><%= trip.name %></a></td>
+      <td><a href="<%= trip_path(trip) %>"><%= trip.start_date %></a></td>
+      <td><a href="<%= trip_path(trip) %>"><%= trip.end_date %></a></td>
+    </tr>
+  <% end %>
+</table>
